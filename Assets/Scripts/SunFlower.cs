@@ -4,20 +4,12 @@ using UnityEngine;
 
 public class SunFlower : MonoBehaviour
 {
-    public GameObject sunProfab;
-
-    private void Awake() {
+    public void init() {
         InvokeRepeating("createSun", 3, 5);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void createSun() {
-        GameObject sun = Instantiate(sunProfab);
+        GameObject sun = Instantiate(Stash.Instance.GameConf.sun);
         Sun sunscript = sun.GetComponent<Sun>();
         sunscript.Init(this.transform.position);
         sunscript.jumpAni();

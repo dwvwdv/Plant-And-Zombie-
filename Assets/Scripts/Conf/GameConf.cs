@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -8,4 +6,6 @@ using UnityEngine;
 public class GameConf : ScriptableObject{
     [Tooltip("陽光預製體")]
     public GameObject sun;
+    [Tooltip("太陽花")]
+    public GameObject sunFlower;
 }

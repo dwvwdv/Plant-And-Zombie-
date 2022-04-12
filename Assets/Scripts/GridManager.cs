@@ -50,10 +50,14 @@ public class GridManager : MonoBehaviour {
     }
 
     public Vector2 getGridPointByMouse() {
+        return getGridPointByWorldPos(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+    }
+
+    public Vector2 getGridPointByWorldPos(Vector2 worldPos) {
         float dis = 1000000;
         Vector2 point = gridList[0].position;
-        for(int i = 0; i < gridList.Count; i++) {
-            float t = Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), gridList[i].position);
+        for (int i = 0; i < gridList.Count; i++) {
+            float t = Vector2.Distance(worldPos, gridList[i].position);
             if (t < dis) {
                 dis = t;
                 point = gridList[i].position;

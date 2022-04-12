@@ -4,15 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class UIPlantCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
+public class UIPlantCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler ,IPointerClickHandler{
     private Image maskImg;
-    public GameObject profabPlant;
-
+    
     private GameObject plant;
 
-    public float CDTime = 10;
-
+    public float CDTime = 3;
     public float nowCDTime;
+
+    private bool wantPlace = false;
+
+    public bool WantPlace {
+        get => wantPlace;
+        set {
+            wantPlace = value;
+            if (wantPlace) {
+                createCardPlant();
+            }
+            else
+                placePlant();
+        }
+    }
 
     private bool _isPlace;
     public bool IsPlace {
@@ -35,6 +47,7 @@ public class UIPlantCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             transform.localScale = new Vector3(1f, 1f, 1f);
         //throw new System.NotImplementedException();
     }
+    
 
     // Start is called before the first frame update
     void Start() {
@@ -48,7 +61,9 @@ public class UIPlantCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
 
     void placePlant() {
+        if (plant == null) return;
         plant.transform.position = GridManager.Instance.getGridPointByMouse();
+        plant.GetComponent<SunFlower>().init();
         IsPlace = false;
     }
 
@@ -60,9 +75,8 @@ public class UIPlantCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void createCardPlant() {
         if (!IsPlace)
             return;
-        //if(GridManager.Instance)
-        plant = Instantiate<GameObject>(profabPlant);
-
+        GameObject prefab = PlantManager.Instance.getPlantForType(PlantType.SunFlower);
+        plant = Instantiate(prefab);
     }
     IEnumerator calCD() {
         nowCDTime = CDTime;
@@ -77,20 +91,29 @@ public class UIPlantCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         IsPlace = true;
     }
 
-    private void OnMouseDown() {
-        createCardPlant();
-    }
+    
 
-    private void OnMouseDrag() {
-        movePlant();
-    }
-
-    private void OnMouseUp() {
-        placePlant();
-    }
+    
 
     // Update is called once per frame
     void Update() {
+        if (wantPlace && plant != null) {
+            movePlant();
+            if (Input.GetMouseButtonDown(0))
+                WantPlace = false;
+            else if(Input.GetMouseButtonDown(1)) {
+                Destroy(plant);
+                plant = null;
+                WantPlace = false;
+            }
+        }
     }
 
+    public void OnPointerClick(PointerEventData eventData) {
+        if (nowCDTime > 0)
+            return;
+        print("click");
+        if (!WantPlace)
+            WantPlace = true;
+    }
 }

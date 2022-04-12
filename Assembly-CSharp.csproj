@@ -62,9 +62,11 @@
     <Compile Include="Assets\Scripts\UIPlantCard.cs" />
     <Compile Include="Assets\Scripts\SunFlower.cs" />
     <Compile Include="Assets\Scripts\GridManager.cs" />
+    <Compile Include="Assets\Scripts\Conf\GameConf.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\Stash.cs" />
-    <Compile Include="Assets\Scripts\Conf\GameConf.cs" />
+    <Compile Include="Assets\Scripts\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\PlantManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

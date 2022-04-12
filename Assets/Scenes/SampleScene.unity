@@ -176,8 +176,10 @@ GameObject:
   m_Component:
   - component: {fileID: 172911780}
   - component: {fileID: 172911779}
+  - component: {fileID: 172911781}
+  - component: {fileID: 172911782}
   m_Layer: 0
-  m_Name: Stash
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,6 +211,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &172911781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172911778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c973f5b16f333814795ccaaff4fb5cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &172911782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172911778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1009eb736b234684d95e092af0f8e0ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &220189096
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -750,7 +776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0ddda4ea22224418ff36dd2d9f771d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunProfab: {fileID: 2050627607395959304, guid: 3748dad0d5580d04fa53c7c77156bc86, type: 3}
 --- !u!4 &704049571
 Transform:
   m_ObjectHideFlags: 0
@@ -919,7 +944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d705313f89dc804c93e7b5ce9186118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profabPlant: {fileID: 591390555414100559, guid: 9fc4ccee563fb144f9d1101da3b6f24b, type: 3}
   CDTime: 10
   nowCDTime: 0
 --- !u!114 &1102243110
@@ -1013,7 +1037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1200,7 +1224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1303,7 +1327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d705313f89dc804c93e7b5ce9186118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profabPlant: {fileID: 591390555414100559, guid: 9fc4ccee563fb144f9d1101da3b6f24b, type: 3}
   CDTime: 10
   nowCDTime: 0
 --- !u!114 &1558161352
@@ -1395,7 +1418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0.7019608}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1510,8 +1533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d705313f89dc804c93e7b5ce9186118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profabPlant: {fileID: 591390555414100559, guid: 9fc4ccee563fb144f9d1101da3b6f24b, type: 3}
-  CDTime: 10
+  CDTime: 1
   nowCDTime: 0
 --- !u!61 &1698994667
 BoxCollider2D:

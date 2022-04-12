@@ -69,7 +69,7 @@ public class Sun : MonoBehaviour {
     }
 
     private void OnMouseDown() {
-        Stash.Instance.sunNum += 50;
+        PlayerManager.Instance.sunNum += 50;
         Vector3 numTextPos = Camera.main.ScreenToWorldPoint(UIManager.Instance.getSunNumTextPos());
         numTextPos = new Vector3(numTextPos.x, numTextPos.y, 0f);
         flyAni(numTextPos);

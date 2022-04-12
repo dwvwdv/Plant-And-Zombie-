@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SkySunManager : MonoBehaviour {
-    public GameObject sunProfab;
     private GameObject sun;
 
     private float createSunPosY = 6;
@@ -27,7 +26,7 @@ public class SkySunManager : MonoBehaviour {
     void createSun() {
         finalPosY = Random.Range(-3.7f, 2.5f);
         finalPosX = Random.Range(-5.5f, 5.5f);
-        sun = Instantiate(sunProfab);
+        sun = Instantiate(Stash.Instance.GameConf.sun);
         Sun sunscript = sun.GetComponent<Sun>();
         sunscript.Init(new Vector2(finalPosX, createSunPosY), finalPosY);
     }
