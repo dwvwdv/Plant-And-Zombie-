@@ -5,9 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class UIPlantCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler ,IPointerClickHandler{
+    public PlantType plantType;
+
     private Image maskImg;
-    
-    private GameObject plant;
+    private PlantBase plant;
 
     public float CDTime = 3;
     public float nowCDTime;
@@ -61,9 +62,10 @@ public class UIPlantCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
 
     void placePlant() {
+        
         if (plant == null) return;
         plant.transform.position = GridManager.Instance.getGridPointByMouse();
-        plant.GetComponent<SunFlower>().init();
+        plant.init();
         IsPlace = false;
     }
 
@@ -73,10 +75,8 @@ public class UIPlantCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
 
     void createCardPlant() {
-        if (!IsPlace)
-            return;
-        GameObject prefab = PlantManager.Instance.getPlantForType(PlantType.SunFlower);
-        plant = Instantiate(prefab);
+        GameObject prefab = PlantManager.Instance.getPlantForType(plantType);
+        plant = Instantiate(prefab).GetComponent<PlantBase>();
     }
     IEnumerator calCD() {
         nowCDTime = CDTime;
@@ -99,10 +99,15 @@ public class UIPlantCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void Update() {
         if (wantPlace && plant != null) {
             movePlant();
-            if (Input.GetMouseButtonDown(0))
-                WantPlace = false;
-            else if(Input.GetMouseButtonDown(1)) {
-                Destroy(plant);
+            if (Input.GetMouseButtonDown(0)) {
+                Grid grid = GridManager.Instance.getGridByWorldPos(GridManager.Instance.getGridPointByMouse());
+                if (grid.isEmpty == true) {
+                    grid.isEmpty = false;
+                    WantPlace = false;
+                }
+            }
+            else if (Input.GetMouseButtonDown(1)) {
+                Destroy(plant.gameObject);
                 plant = null;
                 WantPlace = false;
             }

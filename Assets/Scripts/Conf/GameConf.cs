@@ -8,4 +8,6 @@ public class GameConf : ScriptableObject{
     public GameObject sun;
     [Tooltip("¤Ó¶§ªá")]
     public GameObject sunFlower;
+    [Tooltip("½Ü¨§®g¤â")]
+    public GameObject peashooter;
 }

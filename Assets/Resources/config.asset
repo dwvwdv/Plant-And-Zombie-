@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sun: {fileID: 2050627607395959304, guid: 3748dad0d5580d04fa53c7c77156bc86, type: 3}
   sunFlower: {fileID: 591390555414100559, guid: 9fc4ccee563fb144f9d1101da3b6f24b, type: 3}
+  peashooter: {fileID: 1194762629934837089, guid: c43e0228d9b953e488aae9468a1bf76e, type: 3}

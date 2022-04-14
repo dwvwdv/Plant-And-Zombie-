@@ -66,4 +66,18 @@ public class GridManager : MonoBehaviour {
 
         return point;
     }
+
+    public Grid getGridByWorldPos(Vector2 worldPos) {
+        float dis = 1000000;
+        Grid grid = null;
+        Vector2 point = gridList[0].position;
+        for (int i = 0; i < gridList.Count; i++) {
+            float t = Vector2.Distance(worldPos, gridList[i].position);
+            if (t < dis) {
+                dis = t;
+                grid = gridList[i];
+            }
+        }
+        return grid;
+    }
 }

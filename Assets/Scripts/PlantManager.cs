@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum PlantType {
     SunFlower,
+    Peashooter,
 }
 
 public class PlantManager : MonoBehaviour
@@ -20,8 +21,9 @@ public class PlantManager : MonoBehaviour
     public GameObject getPlantForType(PlantType type) {
         switch (type) {
             case PlantType.SunFlower:
-                return Stash.Instance.GameConf.sunFlower;
-
+                return Stash.Instance.GameConf.sunFlower; 
+            case PlantType.Peashooter:
+                return Stash.Instance.GameConf.peashooter;
             default:
                 return null;
         }
