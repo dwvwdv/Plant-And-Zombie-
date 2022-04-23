@@ -56,19 +56,20 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\PlantBase.cs" />
     <Compile Include="Assets\Scripts\Sun.cs" />
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\PlantManager.cs" />
     <Compile Include="Assets\Scripts\SkySunManager.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\UIPlantCard.cs" />
+    <Compile Include="Assets\Scripts\Peashooter.cs" />
     <Compile Include="Assets\Scripts\SunFlower.cs" />
     <Compile Include="Assets\Scripts\GridManager.cs" />
     <Compile Include="Assets\Scripts\Conf\GameConf.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\Stash.cs" />
-    <Compile Include="Assets\Scripts\PlantBase.cs" />
-    <Compile Include="Assets\Scripts\Peashooter.cs" />
+    <Compile Include="Assets\Scripts\Zombie\Zombie.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

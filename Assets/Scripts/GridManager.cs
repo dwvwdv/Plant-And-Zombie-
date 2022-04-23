@@ -80,4 +80,8 @@ public class GridManager : MonoBehaviour {
         }
         return grid;
     }
+    
+    public float getRandomLine() {
+        return 1.63f * (float)Random.Range(0, 5) - 3.73f;
+    }
 }
